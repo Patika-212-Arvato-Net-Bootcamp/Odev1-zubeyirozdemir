@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "UEqTVKWWEUpVPniURF/XEKu3L/BSpQVISfmdXzvvACrhZxeJm/7n1gL/6Asl2t5Br64eUYYIyxMS12BOAwOeIw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\zubey\\source\\repos\\OrderCli\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zubey\\.nuget\\packages\\intercom.dotnet.client\\2.1.1\\intercom.dotnet.client.2.1.1.nupkg.sha512",
+    "C:\\Users\\zubey\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\zubey\\.nuget\\packages\\restsharp\\106.5.4\\restsharp.106.5.4.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "'Intercom.Dotnet.Client 2.1.1' paketi, proje hedef çerçevesi 'net5.0' yerine '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' kullanılarak geri yüklendi. Bu paket projenizle tamamen uyumlu olmayabilir.",
+      "libraryId": "Intercom.Dotnet.Client",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}
