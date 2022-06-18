@@ -9,6 +9,7 @@ namespace ConsoleApp1
 {
     public class OrderCli
     {
+        
         private ArrayList personInfoList = new ArrayList();
         private ArrayList orderList = new ArrayList();
         private ArrayList modelList = new ArrayList();
@@ -61,7 +62,7 @@ namespace ConsoleApp1
                 Console.Write("TC giriniz: ");
                 tcnoStr = Console.ReadLine();
                 
-
+                // Sadece 11 haneli rakam kontrolü
                 if (tcnoStr.Length == 11 && long.TryParse(tcnoStr, out tcno) == true)
                 { 
                     for (int i = 0; i < personInfoList.Count; i++)
@@ -94,7 +95,7 @@ namespace ConsoleApp1
 
                     if (s.Equals("E") || s.Equals("e"))
                     {
-                        Console.WriteLine("İyi gunler");
+                        Console.WriteLine("İyi gunler. Yine bekleriz.");
                         break;
                     }
                 }
@@ -102,66 +103,72 @@ namespace ConsoleApp1
                     
             }  
         }
+        //Yeni kayıt her zaman son index..
         private void requestOrder(int personIndex)
         {
             int choise;
 
             Console.WriteLine("Volvo Dünyasına Hoşgeldiniz...");
             Console.Write(((Person)personInfoList[personIndex]).Name + " " + ((Person)personInfoList[personIndex]).SurName);
-            
-            Console.WriteLine("\n\nModel secımı yapınız?");
-            for (int j = 0; j < modelList.Count; j++)
+            try
             {
-                Console.Write(j + 1);
-                Console.Write("- ");
-                Console.WriteLine(modelList[j]);
+                Console.WriteLine("\n\nModel secımı yapınız?");
+                for (int j = 0; j < modelList.Count; j++)
+                {
+                    Console.Write(j + 1);
+                    Console.Write("- ");
+                    Console.WriteLine(modelList[j]);
+                }
+
+                Console.Write("Seçiminiz : ");
+                choise = Convert.ToInt32(Console.ReadLine());
+                orderList.Add(modelList[choise - 1]);
+
+                Console.WriteLine("\n****************************************");
+
+                Console.WriteLine("\nRenk secımı yapınız?");
+                for (int j = 0; j < colorList.Count; j++)
+                {
+                    Console.Write(j + 1);
+                    Console.Write("- ");
+                    Console.WriteLine(colorList[j]);
+                }
+
+                Console.Write("Seçiminiz : ");
+                choise = Convert.ToInt32(Console.ReadLine());
+                orderList.Add(colorList[choise - 1]);
+
+                Console.WriteLine("\n****************************************");
+
+                Console.WriteLine("\nMotor secımı yapınız?");
+                for (int j = 0; j < engineList.Count; j++)
+                {
+                    Console.Write(j + 1);
+                    Console.Write("- ");
+                    Console.WriteLine(engineList[j]);
+                }
+
+                Console.Write("Seçiminiz : ");
+                choise = Convert.ToInt32(Console.ReadLine());
+                orderList.Add(engineList[choise - 1]);
+
+                Console.WriteLine("\n****************************************");
+
+                Console.WriteLine("\nPaket secımı yapınız?");
+                for (int j = 0; j < packageList.Count; j++)
+                {
+                    Console.Write(j + 1);
+                    Console.Write("- ");
+                    Console.WriteLine(packageList[j]);
+                }
+                Console.Write("Seçiminiz : ");
+                choise = Convert.ToInt32(Console.ReadLine());
+                orderList.Add(packageList[choise - 1]);
             }
-
-            Console.Write("Seçiminiz : ");
-            choise = Convert.ToInt32(Console.ReadLine());
-            orderList.Add(modelList[choise - 1]);
-            
-            Console.WriteLine("\n****************************************");
-
-            Console.WriteLine("\nRenk secımı yapınız?");
-            for (int j = 0; j < colorList.Count; j++)
+            catch(System.ArgumentOutOfRangeException e)
             {
-                Console.Write(j + 1);
-                Console.Write("- ");
-                Console.WriteLine(colorList[j]);
+                Console.WriteLine("Hatalı seçim.");
             }
-
-            Console.Write("Seçiminiz : ");
-            choise = Convert.ToInt32(Console.ReadLine());
-            orderList.Add(colorList[choise - 1]);
-
-            Console.WriteLine("\n****************************************");
-
-            Console.WriteLine("\nMotor secımı yapınız?");
-            for (int j = 0; j < engineList.Count; j++)
-            {
-                Console.Write(j + 1);
-                Console.Write("- ");
-                Console.WriteLine(engineList[j]);
-            }
-
-            Console.Write("Seçiminiz : ");
-            choise = Convert.ToInt32(Console.ReadLine());
-            orderList.Add(engineList[choise - 1]);
-
-            Console.WriteLine("\n****************************************");
-
-            Console.WriteLine("\nPaket secımı yapınız?");
-            for (int j = 0; j < packageList.Count; j++)
-            {
-                Console.Write(j + 1);
-                Console.Write("- ");
-                Console.WriteLine(packageList[j]);
-            }
-
-            Console.Write("Seçiminiz : ");
-            choise = Convert.ToInt32(Console.ReadLine());
-            orderList.Add(packageList[choise - 1]);
 
         }
 
